@@ -3,14 +3,15 @@
 #include <imgui.h>
 #include "glm/gtx/string_cast.hpp"
 
-void printPoint(const MassPoint &point){
-    std::cout << "position: " << glm::to_string(point.position) << std::endl;
-    std::cout << "velocity: " << glm::to_string(point.velocity) << std::endl;
-}
+namespace {
+    void printPoint(const MassPoint &point){
+        std::cout << "position: " << glm::to_string(point.position) << std::endl;
+        std::cout << "velocity: " << glm::to_string(point.velocity) << std::endl;
+    }
 
-
-glm::vec3 hooke(float len, float k, float L, const glm::vec3 &d){
-    return (-1) * k * (len - L) * (d/len);
+    glm::vec3 hooke(float len, float k, float L, const glm::vec3 &d){
+        return (-1) * k * (len - L) * (d/len);
+    }
 }
 
 void Scene1::init(){
