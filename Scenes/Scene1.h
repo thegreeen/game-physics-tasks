@@ -10,8 +10,8 @@ struct MassPoint{
 struct Spring{
     float k;
     float L;
-    MassPoint p0;
-    MassPoint p1;
+    int p0;
+    int p1;
 };
 
 class Scene1 : public Scene
