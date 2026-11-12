@@ -85,9 +85,10 @@ std::vector<glm::vec3> Scene1::calcAccel(std::vector<MassPoint> &state) const
 {
     std::vector<glm::vec3> accels(state.size(), glm::vec3(0.f));
     for(auto& spring : springs){
-        auto i = spring.p0; auto j = spring.p1;
-        const glm::vec3 d = state[i].position - state[j].position;
+        auto i = spring.p0; auto j = spring.p1; //poits of the spring
+        const glm::vec3 d = state[i].position - state[j].position; //dir
         const float len = glm::length(d);
+
         const glm::vec3 f = hooke(len, spring.k, spring.L, d);
         accels[i] += f / state[i].mass;
         accels[j] -= f / state[j].mass;
@@ -96,19 +97,10 @@ std::vector<glm::vec3> Scene1::calcAccel(std::vector<MassPoint> &state) const
 }
 
 void Scene1::onDraw(Renderer &renderer){
-    /*for(auto& point : points){
-        renderer.drawSphere(point.position, 0.1f);
-    }
-
-    for(auto& spring : springs){
-        renderer.drawLine(spring.p0.position, spring.p1.position, glm::vec3(1));
-    }*/
 }
 
 void Scene1::simulateStep(){
-   
 }
 
 void Scene1::onGUI(){
-    
 }
