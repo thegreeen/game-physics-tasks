@@ -21,6 +21,10 @@ class Scene1 : public Scene
     virtual void onGUI() override;
     virtual void init() override;
 
+    void eulerStep(float dt);
+    void midPointStep(float dt);
+    std::vector<glm::vec3> calcAccel(std::vector<MassPoint>& state) const;
+
     std::vector<MassPoint> points;
     std::vector<Spring> springs;
 };
