@@ -24,38 +24,6 @@ void Scene2::init(){
         {{0.f, 2.f, 0.f}, {1.f, 0.f, 0.f}, 10.f}
     };
     springs = {{40.f, 1.f, 0, 1}};
-
-    //print default
-    std::cout << "Initial Values:" << std::endl;
-    std::cout << std::endl;
-
-    std::cout << "Masspoint 0" << std::endl;
-    printPoint(points[0]);
-    std::cout << "Masspoint 1" << std::endl;
-    printPoint(points[1]);
-    std::cout << std::endl;
-
-    auto backupPoints = points;
-
-    eulerStep(dt);
-
-    //print euler
-    std::cout << "After 0.1s using Euler Method:" << std::endl;
-    std::cout << "Masspoint 0" << std::endl;
-    printPoint(points[0]);
-    std::cout << "Masspoint 1" << std::endl;
-    printPoint(points[1]);
-
-    points = backupPoints;
-    midPointStep(dt);
-
-    //print midpoint
-    std::cout << "After 0.1s using Midpoint Method:" << std::endl;
-    std::cout << "Masspoint 0" << std::endl;
-    printPoint(points[0]);
-    std::cout << "Masspoint 1" << std::endl;
-    printPoint(points[1]);
-
 }
 
 void Scene2::eulerStep(float dt){
@@ -113,5 +81,5 @@ void Scene2::simulateStep(){
 }
 
 void Scene2::onGUI(){
-    ImGui::SliderFloat("Pitch inc", &dt, 0.001f, 1.f);
+    ImGui::SliderFloat("Pitch inc", &dt, 0.0001f, 0.02f);
 }
