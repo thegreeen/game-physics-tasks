@@ -13,9 +13,9 @@ namespace {
     glm::vec3 hooke(float len, float k, float L, const glm::vec3 &d){
         return (-1) * k * (len - L) * (d/len);
     }
-}
 
-float dt = 0.005f;
+    float dt = 0.005f;
+}
 
 void Scene2::init(){
     //setup vars
@@ -81,5 +81,5 @@ void Scene2::simulateStep(){
 }
 
 void Scene2::onGUI(){
-    ImGui::SliderFloat("Pitch inc", &dt, 0.0001f, 0.02f);
+    ImGui::SliderFloat("Delta t", &dt, 0.0001f, 0.02f);
 }
